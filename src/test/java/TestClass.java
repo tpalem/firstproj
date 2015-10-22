@@ -1,33 +1,55 @@
 package com.sankar.padma.realtime.project;
 
+import java.util.ArrayList;
+import java.util.List;
 
-
-class addEmployee implements Runnable{
-	
-	ArrayList<int id,String name> ad1=new ArrayList<int id,String name>();
-	public  addEmployee(int id,String name){
-		
-		ad1.add(1,padma);
-		ad1.add(2,sankar);
-		ad1.add(3,bhavya);
-		
+class addEmployee implements Runnable {
+	public List<addEmployee> list;
+	public addEmployee() {
 	}
-	public synchronized void run(){
-		for(int i=0;i<=ad1.length;i++){
-			System.out.println(ad1(i));
+
+	public addEmployee(int id, String name) {
+		int d = id;
+		String n = name;
+
+	}
+
+	public  synchronized void run() {
+
+		for (int i = 0; i <= list.length; i++) {
+
+			System.out.println(addEmployee[i]);
 		}
-		
+
 	}
 }
 
+class deleteEmployee implements Runnable {
+	public List<addEmployee> list;
+	public  synchronized void run() {
+
+		for (int i = 0; i <= list.length; i++) {
+			list.remove[i];
+		}
+	}
+
+}
 
 public class TestClass {
-	public static void main (String[] args){
-		addEmployee add=new addEmployee(int id,String name);
-		Thread t=new Thread(add);
+	;
+	public static void main(String[] args) {
+		addEmployee empadd = new addEmployee();
+		List<addEmployee> list = new ArrayList<addEmployee>();
+		list.add(new addEmployee(1, "padma"));
+		list.add(new addEmployee(2, "sankar"));
+		list.add(new addEmployee(3, "bhavya"));
+
+		Thread t = new Thread(empadd);
+		deleteEmployee del = new deleteEmployee();
+		Thread td = new Thread(del);
 		t.start();
-		
+		td.start();
+
 	}
 
 }
-
